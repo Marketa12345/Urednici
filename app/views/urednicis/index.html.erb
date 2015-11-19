@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Urednicis</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Street</th>
+      <th>City</th>
+      <th>Zip</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @urednicis.each do |urednici| %>
+      <tr>
+        <td><%= urednici.name %></td>
+        <td><%= urednici.surname %></td>
+        <td><%= urednici.street %></td>
+        <td><%= urednici.city %></td>
+        <td><%= urednici.zip %></td>
+        <td><%= link_to 'Show', urednici %></td>
+        <td><%= link_to 'Edit', edit_urednici_path(urednici) %></td>
+        <td><%= link_to 'Destroy', urednici, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Urednici', new_urednici_path %>

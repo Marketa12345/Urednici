@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @urednici.name %>
+</p>
+
+<p>
+  <strong>Surname:</strong>
+  <%= @urednici.surname %>
+</p>
+
+<p>
+  <strong>Street:</strong>
+  <%= @urednici.street %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @urednici.city %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @urednici.zip %>
+</p>
+
+<%= link_to 'Edit', edit_urednici_path(@urednici) %> |
+<%= link_to 'Back', urednicis_path %>

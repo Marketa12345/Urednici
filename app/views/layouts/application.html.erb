@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+
+
+
+
+<nav class="top-bar">
+  <ul class="title-area">
+    <li class="name">
+      <h1><%= link_to "Urednici ", root_path %></a></h1>
+    </li>
+  </ul>
+  <section class="top-bar-section">
+    <ul class="right">
+      <li class="divider"></li>
+      <li><%= link_to "Log In", sessions_controller_session_path %></li>
+      <li class="divider"></li>
+      <li><%= link_to "Registration", new_user_registration_path %></li>
+      <li class="divider"></li>
+	  <li><%= link_to "Urednici", urednicis_path %></li>
+      <li class="divider"></li>
+
+      
+      <li><%= link_to "Contact Us" %></li>
+      <li class="divider"></li>
+	  <li><%= link_to "Log off", destroy_sessions_controller_session_path %></li>
+      <li class="divider"></li>
+      
+      
+    </ul>
+  </section>
+</nav>
+
+<div class="row">
+  <div class="small-8 columns"><%= yield %></div>
+  <div class="small-4 columns">
+    <h2 class="subheader">About Us</h2>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </div>
+</div>
+
+
+
+
+
+
+
+
+   
+
+  </body>
+</html>
