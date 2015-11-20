@@ -1,11 +1,23 @@
 Rails.application.routes.draw do
-  devise_for :registrations_controllers
-  devise_for :sessions_controllers
-  devise_for :users
-  resources :users
-  resources :urednicis
+  #devise_for :registrations_controllers
+  #devise_for :sessions_controllers
+  #devise_for :users
+  #resources :users
+  #resources :urednicis
   #get 'home/index'
  root :to => "home#index"
+
+
+  devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
+  resources :urednicis
+ 
+   # devise_for :registrations_controllers
+  #devise_for :sessions_controllers
+  #devise_for :users
+  #resources :users
+  #resources :urednicis
+  #get 'home/index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

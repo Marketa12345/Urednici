@@ -28,7 +28,7 @@ class UrednicisController < ApplicationController
 
     respond_to do |format|
       if @urednici.save
-        format.html { redirect_to @urednici, notice: 'Urednici was successfully created.' }
+        format.html { redirect_to @urednici, notice: 'Úředník byl úspěšně přidán' }
         format.json { render :show, status: :created, location: @urednici }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class UrednicisController < ApplicationController
   def update
     respond_to do |format|
       if @urednici.update(urednici_params)
-        format.html { redirect_to @urednici, notice: 'Urednici was successfully updated.' }
+        format.html { redirect_to @urednici, notice: 'Úředník byl úspěšně aktualizován' }
         format.json { render :show, status: :ok, location: @urednici }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class UrednicisController < ApplicationController
   def destroy
     @urednici.destroy
     respond_to do |format|
-      format.html { redirect_to urednicis_url, notice: 'Urednici was successfully destroyed.' }
+      format.html { redirect_to urednicis_url, notice: 'Úředník byl úspěšně smazán' }
       format.json { head :no_content }
     end
   end

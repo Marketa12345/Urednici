@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :lockable, :timeoutable, :confirmable and :activatable
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable, stretches: 20
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
 
   #devise_for :users, controllers: { sessions: "users/sessions" }
