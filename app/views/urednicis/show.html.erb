@@ -2,12 +2,12 @@
     <div class="panel panel-default">
       <div class="panel-body">
         <div class="row">
-          <div class="col-md-4">
+          <div class="small-5 columns">
 
             <div class="table-responsive">
               <table class="table">
                <tbody>
-<br><br><br>
+
     <tr>
       <td><strong>Jméno:</strong></td>
       <td><%= @urednici.name %></td>
@@ -45,7 +45,7 @@
  
 
         <div class="star-rating" data-score= <%= @avg_review %> ></div>
-        <em><%= "#{@urednici.reviews.count} reviews" %></em>
+        <em><%= "#{@urednici.reviews.count} Hodnocení" %></em>
 
 
 <br><br>
@@ -73,7 +73,7 @@ Zkušenosti  : <%= rating_for @urednici, "Zkušenosti", :star => 5, :disable_aft
 
 
 
-<div class="col-md-7 col-md-offset-1">
+<div class="small-5 columns">
         <h1 class="review_title"><%= @urednici.name %></h1>
        
         <% if @urednici.reviews.empty? %>

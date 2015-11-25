@@ -3,20 +3,37 @@ class UrednicisController < ApplicationController
 
   # GET /urednicis
   # GET /urednicis.json
-  def index
-    @urednicis = Urednici.all
-   # @urednicis = Urednici.search(params[:search])
-  end
+  #def index
+  #  @urednicis = Urednici.all
+    #@urednicis = Urednici.search(params[:search])
+ # end
 
   
+
+def index
+  @urednicis = Urednici.search(params[:search])
+end
+
+
+# @urednicis = Urednici.search(params[:search])  index
+   #@urednicis = Urednici.all
+
+
+#def search
+#    if params[:search].present?
+#      @urednicis = Urednici.search(params[:search])
+#    else
+#      @urednicis = Urednici.all
+#    end
+#  end
+
+
 #def search
 #@search = Urednici.search(params[:q])
 #@urednici = @search.result
 #end
 
 
-  # GET /urednicis/1
-  # GET /urednicis/1.json
   def show
 
     #@review = Review.where(urednici_id: @urednici.id).order("created_at DESC")

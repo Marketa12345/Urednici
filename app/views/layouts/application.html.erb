@@ -41,18 +41,34 @@
           </ul>
 
           <!-- Left Nav Section -->
+
+
+               
+             
+
           <ul class="left">
             <li class="has-form">
               <div class="row collapse">
                
                 <div class="large-8 small-9 columns">
-                  
-                  <input type="text" class="radius-left expand" placeholder="najít úředníka">
+
+                    <%= form_tag urednicis_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
+              <p>
+                  <%= text_field_tag :search, params[:search], class: "radius-left expand", placeholder: "Najít úředníka" %>
+                 </p>                        
+
+
                 </div>
                 <div class="large-4 small-3 columns">
                   
-                    <a href="#" class=" radius-right button">Search</a>
+
+                    <p>
+                    <%= submit_tag "Search", name: nil, class: "radius-right button" %>
+                  </p>
+                  <% end %>
                  
+
+
                 </div>
                
               </div>
