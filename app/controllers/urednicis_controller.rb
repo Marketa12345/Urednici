@@ -5,12 +5,28 @@ class UrednicisController < ApplicationController
   # GET /urednicis.json
   def index
     @urednicis = Urednici.all
+   # @urednicis = Urednici.search(params[:search])
   end
+
+  
+#def search
+#@search = Urednici.search(params[:q])
+#@urednici = @search.result
+#end
+
 
   # GET /urednicis/1
   # GET /urednicis/1.json
   def show
-  end
+
+    #@review = Review.where(urednici_id: @urednici.id).order("created_at DESC")
+
+
+    @avg_review = @urednici.reviews.average(:rating).to_f.round(2)
+  
+end
+ 
+
 
   # GET /urednicis/new
   def new

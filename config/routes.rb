@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+
+ 
+
+  post '/rate' => 'rater#create', :as => 'rate'
   #devise_for :registrations_controllers
   #devise_for :sessions_controllers
   #devise_for :users
@@ -9,7 +14,10 @@ Rails.application.routes.draw do
 
 
   devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
-  resources :urednicis
+
+  resources :urednicis do
+    resources :reviews, except: [:show, :index]
+  end
  
    # devise_for :registrations_controllers
   #devise_for :sessions_controllers

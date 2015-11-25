@@ -3,7 +3,9 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :lockable, :timeoutable, :confirmable and :activatable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
+  ratyrate_rater
 
+  has_many :reviews, dependent: :destroy
   #devise_for :users, controllers: { sessions: "users/sessions" }
 #attr_accessible :email, :password, :password_confirmation, :remember_me, :encrypted_password
   #before_action :authenticate_user!

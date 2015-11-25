@@ -1,29 +1,109 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Jméno:</strong>
-  <%= @urednici.name %>
-</p>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-4">
 
-<p>
-  <strong>Příjmení:</strong>
-  <%= @urednici.surname %>
-</p>
+            <div class="table-responsive">
+              <table class="table">
+               <tbody>
+<br><br><br>
+    <tr>
+      <td><strong>Jméno:</strong></td>
+      <td><%= @urednici.name %></td>
+    </tr>
+ 
+    <tr>
+      <td><strong>Příjmení:</strong></td>
+      <td><%= @urednici.surname %></td>
+    </tr>
+ 
+    <tr>
+      <td><strong>Ulice:</strong></td>
+      <td><%= @urednici.street %></td>
+    </tr>
+ 
+    <tr>
+      <td><strong>Město:</strong></td>
+      <td><%= @urednici.city %></td>
+    </tr>
+ 
+    <tr>
+      <td><strong>PSČ:</strong></td>
+      <td><%= @urednici.zip %></td>
+    </tr>
+    
+   </tbody>
+  </table>
 
-<p>
-  <strong>Ulice:</strong>
-  <%= @urednici.street %>
-</p>
 
-<p>
-  <strong>Město:</strong>
-  <%= @urednici.city %>
-</p>
 
-<p>
-  <strong>PSČ:</strong>
-  <%= @urednici.zip %>
-</p>
 
+      <strong>Celkové hodnocení:</strong>
+    
+<br>
+ 
+
+        <div class="star-rating" data-score= <%= @avg_review %> ></div>
+        <em><%= "#{@urednici.reviews.count} reviews" %></em>
+
+
+<br><br>
+
+     
+      <strong>Oznámkuj zvlášť vlastnosti jako ve škole:</strong>
+    
+
+<br>
+ 
+
+Ochota  : <%= rating_for @urednici, "Ochota", :star => 5, :disable_after_rate => false, :enable_half => true, :half_show => true, :cancel_hint => "Zrušit hodnocení!"  %>
+Spolehlivost : <%= rating_for @urednici, "Spolehlivost", :star => 5, :disable_after_rate => false, :enable_half => true, :half_show => true, :cancel_hint => "Zrušit hodnocení!" %>
+Zkušenosti  : <%= rating_for @urednici, "Zkušenosti", :star => 5, :disable_after_rate => false, :enable_half => true, :half_show => true, :cancel_hint => "Zrušit hodnocení!" %>
+ 
+
+
+
+
+  <%= link_to "Napsat nové hodnocení", new_urednici_review_path(@urednici) %>
+        </div>
+        </div>
+ 
+
+
+
+
+<div class="col-md-7 col-md-offset-1">
+        <h1 class="review_title"><%= @urednici.name %></h1>
+       
+        <% if @urednici.reviews.empty? %>
+          <h3>Zatím zde nejsou žádné hodnocení, chceš být první? </h3>
+          <%= link_to "Napsat hodnocení", new_urednici_review_path(@urednici), class: "btn btn-danger" %>
+        <% else %>
+
+          <% @urednici.reviews.each do |review| %>
+            <div class="reviews">
+              <div class="star-rating" data-score= <%= review.rating %> ></div>
+              <p><%= review.comment %></p>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
 <%= link_to 'Editovat', edit_urednici_path(@urednici) %> |
 <%= link_to 'Zpět', urednicis_path %>
+
+
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>
