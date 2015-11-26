@@ -50,26 +50,28 @@
             <li class="has-form">
               <div class="row collapse">
                
-                <div class="large-8 small-9 columns">
+              <div class="large-5 small-9 columns">
 
-                    <%= form_tag urednicis_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
-              <p>
-                  <%= text_field_tag :search, params[:search], class: "radius-left expand", placeholder: "Najít úředníka" %>
-                 </p>                        
+                  <%= form_tag urednicis_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
+                  <p><%= text_field_tag :search, params[:search], class: "radius-left expand", placeholder: "Najít úředníka" %></p>  
+
+              </div>
 
 
-                </div>
-                <div class="large-4 small-3 columns">
+              <div class="large-4 small-3 columns">
                   
+                    <p><%= submit_tag "Search", name: nil, class: "radius-right button" %></p>
 
-                    <p>
-                    <%= submit_tag "Search", name: nil, class: "radius-right button" %>
-                  </p>
-                  <% end %>
-                 
+                    <% end %>            
 
+              </div>
 
-                </div>
+              <div class="small-3 columns">
+
+                    <p><%=link_to "Rozšířené vyhledávání", searches_path%></p>
+
+               </div>
+
                
               </div>
             </li>

@@ -1,10 +1,10 @@
-<%= form_for(@urednici) do |f| %>
-  <% if @urednici.errors.any? %>
+<%= form_for(@search) do |f| %>
+  <% if @search.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@urednici.errors.count, "error") %> prohibited this urednici from being saved:</h2>
+      <h2><%= pluralize(@search.errors.count, "error") %> prohibited this search from being saved:</h2>
 
       <ul>
-      <% @urednici.errors.full_messages.each do |message| %>
+      <% @search.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -12,26 +12,36 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :keywords %><br>
+    <%= f.text_field :keywords %>
+  </div>
+  <div class="field">
     <%= f.label :Jméno %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :Jmeno %>
   </div>
   <div class="field">
     <%= f.label :Příjmení %><br>
-    <%= f.text_field :surname %>
+    <%= f.text_field :Prijmeni %>
   </div>
   <div class="field">
     <%= f.label :Ulice %><br>
-    <%= f.text_field :street %>
+    <%= f.text_field :Ulice %>
   </div>
   <div class="field">
     <%= f.label :Město %><br>
-    <%= f.text_field :city %>
+    <%= f.text_field :Mesto %>
   </div>
   <div class="field">
     <%= f.label :PSČ %><br>
-    <%= f.number_field :zip %>
+    <%= f.number_field :PSC %>
   </div>
   <div class="actions">
     <%= f.submit "Potvrďit"%>
   </div>
 <% end %>
+
+
+
+
+
+

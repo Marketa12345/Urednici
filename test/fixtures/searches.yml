@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  keywords: MyString
+  Jmeno: MyString
+  Prijmeni: MyString
+  Ulice: MyString
+  Mesto: MyString
+  PSC: 1
+
+two:
+  keywords: MyString
+  Jmeno: MyString
+  Prijmeni: MyString
+  Ulice: MyString
+  Mesto: MyString
+  PSC: 1

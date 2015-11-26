@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
  
 
+  resources :searches
   post '/rate' => 'rater#create', :as => 'rate'
   #devise_for :registrations_controllers
   #devise_for :sessions_controllers
@@ -22,6 +23,21 @@ Rails.application.routes.draw do
     resources :reviews, except: [:show, :index]
   end
  
+
+
+
+
+
+
+#Project::Apllication.routes.draw do
+
+# resources :searches
+# root to: 'urednicis#index' 
+# resources :urednicis
+# resources :searches
+#end
+
+
    # devise_for :registrations_controllers
   #devise_for :sessions_controllers
   #devise_for :users

@@ -1,0 +1,69 @@
+<%=search_form_for @search, url: url_for, method: :get do |f| %>
+
+<h1>Rozšířené vyhledávání</h1>
+<p>Zadejte parametry, podle kterých chcete úředníky vyhledat</p><br>
+<div>
+ <%= f.label :name_cont, "Jméno" %><br>
+ <%= f.text_field :name_cont %>
+</div>
+
+
+<div>
+ <%= f.label :surname_cont, "Příjmení" %><br>
+ <%= f.text_field :surname_cont %>
+</div>
+
+<div>
+ <%= f.label :street_cont, "Ulice" %><br>
+ <%= f.text_field :street_cont %>
+</div>
+
+
+<div>
+ <%= f.label :city_cont, "Město" %><br>
+ <%= f.text_field :city_cont %>
+</div>
+
+<div>
+ <%= f.label :zip_cont, "Poštovní směrovací číslo(zadejte celé)" %><br>
+ <%= f.number_field :zip_eq %>
+</div>
+
+
+
+
+
+
+  <div class="actions">
+    <%= f.submit "Potvrďit"%>
+  </div>
+<%end%>
+
+
+<h2>Výsledky vyhledávání</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Jméno</th>
+      <th>Příjmení</th>
+      <th>Ulice</th>
+      <th>Město</th>
+      <th>PSČ</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @urednicis.each do |urednici| %>
+      <tr>
+        <td><%= urednici.name %></td>
+        <td><%= urednici.surname %></td>
+        <td><%= urednici.street %></td>
+        <td><%= urednici.city %></td>
+        <td><%= urednici.zip %></td>
+        <td><%= link_to 'Detail', urednici %></td>
+     
+      </tr>
+    <% end %>
+  </tbody>
+</table>
