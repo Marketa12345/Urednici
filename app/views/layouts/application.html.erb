@@ -26,16 +26,18 @@
           <li class="toggle-topbar"><a href="#"><span>Menu</span></a></li>
         </ul>
 
+
+
         <section class="top-bar-section">
           <!-- Right Nav Section -->
           <ul class="right">
             <%if signed_in?%>
               <li><%=link_to current_user.email, edit_user_registration_path%></li>
-              <li><%=link_to "Logout", destroy_user_session_path, method: :delete%></li>
+              <li><%=link_to "Odhlásit", destroy_user_session_path, method: :delete%></li>
                <li><%=link_to "Seznam úředníků", urednicis_path%></li>
             <%else%>
-              <li><%=link_to "Register", new_user_registration_path%></li>
-              <li><%=link_to "Login", new_user_session_path%></li>
+              <li><%=link_to "Registrovat", new_user_registration_path%></li>
+              <li><%=link_to "Přihlásit se", new_user_session_path%></li>
               <li><%=link_to "Seznam úředníků", urednicis_path%></li>
             <%end%>
           </ul>
@@ -60,7 +62,7 @@
 
               <div class="large-4 small-3 columns">
                   
-                    <p><%= submit_tag "Search", name: nil, class: "radius-right button" %></p>
+                    <p><%= submit_tag "Hledat", name: nil, class: "radius-right button" %></p>
 
                     <% end %>            
 

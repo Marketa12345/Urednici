@@ -1,5 +1,6 @@
 class UrednicisController < ApplicationController
   before_action :set_urednici, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /urednicis
   # GET /urednicis.json

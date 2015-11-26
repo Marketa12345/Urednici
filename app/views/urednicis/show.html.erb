@@ -85,6 +85,8 @@ Zkušenosti  : <%= rating_for @urednici, "Zkušenosti", :star => 5, :disable_aft
             <div class="reviews">
               <div class="star-rating" data-score= <%= review.rating %> ></div>
               <p><%= review.comment %></p>
+              <p>autor hodnocení: <%= review.user.email %> </p>
+             
             </div>
           <% end %>
         <% end %>
