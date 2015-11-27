@@ -13,7 +13,10 @@ Rails.application.routes.draw do
   #devise_for :users
   #resources :users
   #resources :urednicis
-  #get 'home/index'
+ resources :administrations
+
+
+
  root :to => "home#index"
 
 
@@ -27,11 +30,11 @@ Rails.application.routes.draw do
  
 
 
- #resources :reviews do
+ resources :reviews do
 
-  #get :confirm, on: :member
+  get :confirm, on: :member
 
- #end
+ end
 
 
 

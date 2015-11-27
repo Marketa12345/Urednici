@@ -1,0 +1,30 @@
+<h1>Administrace</h1>
+
+
+   <% @reviews.each do |review| %>
+            <div class="reviews">
+              <div class="star-rating" data-score= <%= review.rating %> ></div>
+              
+             
+              <p><%= review.comment %></p>
+
+              <p>autor hodnocení: <%= review.user.username %> </p>
+
+<%= link_to 'Schválit', confirm_review_path(review) %> |
+<%= link_to 'Smazat', review_path(review) , method: :delete%>
+            
+
+
+            </div>
+          <% end %>
+
+
+          <script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>

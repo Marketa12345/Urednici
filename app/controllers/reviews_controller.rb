@@ -1,8 +1,8 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy, :confirm]
-  before_action :set_urednici
-  before_action :authenticate_user!
-  
+  before_action :set_urednici, except: [:confirm, :destroy]
+  before_action :authenticate_user!, except: [:confirm, :destroy]
+  before_action :authenticate_admin!, only: [:confirm, :destroy]
 
 
   def new
@@ -30,19 +30,20 @@ class ReviewsController < ApplicationController
       @review.update(review_params)
     end
 
-    def destroy
+
+ def destroy
       @review.destroy
-      redirect_to root_path
+      redirect_to administrations_path
     end
 
 
-  #def confirm
+  def confirm
 
-    #@review.confirmed = true
-    #@review.save
-    #redirect_to ta stranka s vypisy
+    @review.confirmed = true
+    @review.save
+    redirect_to administrations_path
 
-  #end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

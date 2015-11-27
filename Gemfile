@@ -26,10 +26,13 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'foundation-rails'
-
+#vyhledavani rozsirene
 gem 'ransack'
+#strankovani
 
+gem 'kaminari'
 
+#hodnoceni
 gem 'ratyrate'
 
 gem 'devise'#, '1.1.rc0'

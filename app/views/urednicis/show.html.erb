@@ -63,7 +63,7 @@ Zkušenosti  : <%= rating_for @urednici, "Zkušenosti", :star => 5, :disable_aft
  
 
 
-
+<br>
 
   <%= link_to "Napsat nové hodnocení", new_urednici_review_path(@urednici) %>
         </div>
@@ -73,15 +73,15 @@ Zkušenosti  : <%= rating_for @urednici, "Zkušenosti", :star => 5, :disable_aft
 
 
 
-<div class="small-5 columns">
+<div class="large-7 columns">
         <h1 class="review_title"><%= @urednici.name %></h1>
        
-        <% if @urednici.reviews.empty? %>
+        <% if @urednici.reviews.confirmed.empty? %>
           <h3>Zatím zde nejsou žádné hodnocení, chceš být první? </h3>
           <%= link_to "Napsat hodnocení", new_urednici_review_path(@urednici), class: "btn btn-danger" %>
         <% else %>
 
-          <% @urednici.reviews.each do |review| %>
+          <% @urednici.reviews.confirmed.each do |review| %>
             <div class="reviews">
               <div class="star-rating" data-score= <%= review.rating %> ></div>
               
@@ -97,10 +97,24 @@ Zkušenosti  : <%= rating_for @urednici, "Zkušenosti", :star => 5, :disable_aft
             </div>
           <% end %>
         <% end %>
+        <ul class="pagination">
+  <li class="arrow unavailable"><a href="">&laquo;</a></li>
+  <li class="current"><a href="">1</a></li>
+  <li><a href="">2</a></li>
+  <li><a href="">3</a></li>
+  <li><a href="">4</a></li>
+  <li class="unavailable"><a href="">&hellip;</a></li>
+  <li><a href="">12</a></li>
+  <li><a href="">13</a></li>
+  <li class="arrow"><a href="">&raquo;</a></li>
+</ul>
+
       </div>
     </div>
   </div>
 </div>
+
+
 
 <br>
 <%= link_to 'Editovat', edit_urednici_path(@urednici) %> |
