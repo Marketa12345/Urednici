@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :set_review, only: [:show, :edit, :update, :destroy, :confirm]
   before_action :set_urednici
   before_action :authenticate_user!
   
@@ -36,6 +36,14 @@ class ReviewsController < ApplicationController
     end
 
 
+  #def confirm
+
+    #@review.confirmed = true
+    #@review.save
+    #redirect_to ta stranka s vypisy
+
+  #end
+
   private
     # Use callbacks to share common setup or constraints between actions.
 
@@ -52,4 +60,6 @@ class ReviewsController < ApplicationController
     def review_params
       params.require(:review).permit(:rating, :comment)
     end
+
+
 end

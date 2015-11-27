@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
  
 
+  devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
   devise_for :admins
+  resources :users
   resources :searches
   post '/rate' => 'rater#create', :as => 'rate'
   #devise_for :registrations_controllers
@@ -15,7 +17,6 @@ Rails.application.routes.draw do
  root :to => "home#index"
 
 
-  devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
 
   resources :urednicis do
    # collection do
@@ -26,7 +27,11 @@ Rails.application.routes.draw do
  
 
 
+ #resources :reviews do
 
+  #get :confirm, on: :member
+
+ #end
 
 
 

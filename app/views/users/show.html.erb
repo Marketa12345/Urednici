@@ -1,0 +1,28 @@
+ <h1 class="review_title">Moje dosavadní hodnocení</h1>
+
+
+       
+        <% if @reviews.empty? %>
+          <h3>Zatím jsi nenapsal žádné hodnocení </h3>
+          <p>Hodnocení můžeš napsat po rozkliknutí u daného úředníka</p>
+          <%= link_to "Seznam úředníků", urednicis_path, class: "btn btn-danger" %>
+        <% else %>
+
+          <% @reviews.each do |review| %>
+            <div class="reviews">
+              <div class="star-rating" data-score= <%= review.rating %> ></div>
+              
+             
+              <p><%= review.comment %></p>
+</div>
+ <% end %>
+       <% end %>
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>

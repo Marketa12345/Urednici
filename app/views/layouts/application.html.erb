@@ -36,6 +36,7 @@
               <li><%=link_to current_user.email, edit_user_registration_path%></li>
               <li><%=link_to "Odhlásit", destroy_user_session_path, method: :delete%></li>
                <li><%=link_to "Seznam úředníků", urednicis_path%></li>
+               <li><%=link_to "Můj účet", user_path(current_user)%></li>
            
 
             <%end%>
@@ -45,9 +46,9 @@
               <li><%=link_to "Odhlásit", destroy_admin_session_path, method: :delete%></li>
                <li><%=link_to "Seznam úředníků", urednicis_path%></li>
 
-                
+                <%end%>
                
-            <%else %>
+            <%if !user_signed_in? && !admin_signed_in? %>
               <li><%=link_to "Registrovat", new_user_registration_path%></li>
               <li><%=link_to "Přihlásit se", new_user_session_path%></li>
               <li><%=link_to "Seznam úředníků", urednicis_path%></li>
@@ -113,6 +114,7 @@
     </footer>
 
     <%= javascript_include_tag "application" %>
+
   </body>
 </html>
 
