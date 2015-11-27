@@ -22,9 +22,22 @@
         <td><%= urednici.street %></td>
         <td><%= urednici.city %></td>
         <td><%= urednici.zip %></td>
+
+        <% if admin_signed_in? %>  
+
+
         <td><%= link_to 'Detail', urednici %></td>
         <td><%= link_to 'Editovat', edit_urednici_path(urednici) %></td>
         <td><%= link_to 'Smazat', urednici, method: :delete, data: { confirm: 'Jste si jisti?' } %></td>
+
+        
+
+        <%else%>
+
+        <td><%= link_to 'Detail', urednici %></td>
+
+          <% end %>
+
       </tr>
     <% end %>
   </tbody>
@@ -33,4 +46,8 @@
 <br>
 
 
+<% if admin_signed_in? %>  
+
 <%= link_to 'Přidat nového úředníka', new_urednici_path %>
+
+<% end %>
